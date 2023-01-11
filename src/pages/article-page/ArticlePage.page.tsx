@@ -15,9 +15,9 @@ const ArticlePage: FC = () => {
     const { id } = useParams<ArticlePageParams>()
     const dispatch = useDispatch()
 
-    useEffect(() => {   
+    useEffect(() => {
         dispatch(fetchArticleStart(id))
-    }, [])
+    }, [dispatch, id])
 
     if (error) return <Error error={error} />
 

@@ -18,7 +18,7 @@ const HomePage: FC = () => {
 
     useEffect(() => {
       dispatch(fetchNewsStart())
-    }, [])
+    }, [dispatch])
 
     const filteredNews = useNews(searchQuery, news)
 
@@ -29,9 +29,9 @@ const HomePage: FC = () => {
     return (
         <div className="home-wrapper">
             <Typography variant="subtitle2" gutterBottom component="div" className="bold-subtitle">
-                Filter by keywords        
+                Filter by keywords
             </Typography>
-            <Search 
+            <Search
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
@@ -49,7 +49,7 @@ const HomePage: FC = () => {
             }
             <div className="news-wrapper">
                 {filteredNews.map(item => <NewsCard key={item.id} news={item}/>)}
-            </div>            
+            </div>
         </div>
     )
 }
